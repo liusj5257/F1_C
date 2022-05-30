@@ -19,7 +19,8 @@ extern void adjust_data(int (*A)[M + 1]);  //!修改判断结果
 extern void output_data(FILE *fout, int (*A)[M + 1]);
 extern void fpath(FILE **fin, FILE **fout);  //!修改文件路径
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
   int A[N][M + 1] = {0};
   FILE *fin = 0;
   FILE *fout = 0;
@@ -39,37 +40,49 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-void input_data(FILE *fin, int (*A)[M + 1]) {
-  for (i = 0; i < N; i++) {
-    for (j = 0; j < M; j++) {
+void input_data(FILE *fin, int (*A)[M + 1])
+{
+  for (i = 0; i < N; i++)
+  {
+    for (j = 0; j < M; j++)
+    {
       fscanf(fin, "%d", &A[i][j]);
     }
   }
   fclose(fin);
 }
-void adjust_data(int (*A)[M + 1]) {
-  for (i = 0; i < N; i++) {
+void adjust_data(int (*A)[M + 1])
+{
+  for (i = 0; i < N; i++)
+  {
     // if (A[i][4] == 22) {
     //  A[i][4] = 21;
     //}
   }
-  for (i = 0; i < N; i++) {
+  for (i = 0; i < N; i++)
+  {
     A[i][0] = 1;
     if (A[i][1] == 0 || A[i][1] == 1 || A[i][1] == 7 || A[i][1] == 2 ||
-        A[i][1] == 4 || (A[i][1] == 3 && A[i][3] < 5 && A[i][2] == 1)) {
+        A[i][1] == 4 || (A[i][1] == 3 && A[i][3] < 5 && A[i][2] == 1))
+    {
       A[i][M] = 0;
-    } else {
+    }
+    else
+    {
       A[i][M] = 1;
     }
   }
 }
 
-void output_data(FILE *fout, int (*A)[M + 1]) {
+void output_data(FILE *fout, int (*A)[M + 1])
+{
   fprintf(fout, "%s", c);
   //  fprintf(fout, "Values");
-  for (i = 0; i < N; i++) {
+  for (i = 0; i < N; i++)
+  {
     fprintf(fout, "\t\t");
-    for (j = 0; j < M + 1; j++) {
+    for (j = 0; j < M + 1; j++)
+    {
       fprintf(fout, "%d\t", A[i][j]);
     }
     fprintf(fout, "\n");
@@ -78,23 +91,28 @@ void output_data(FILE *fout, int (*A)[M + 1]) {
   printf("success!");
 }
 
-void fpath(FILE **fin, FILE **fout) {
+void fpath(FILE **fin, FILE **fout)
+{
   // if ((fin = fopen("C:/Users/l/Desktop/1.txt", "r")) == NULL)
   // if((fin=fopen("C:\\Users\\l\\Desktop\\1.txt","r"))==NULL)
-  if ((*fin = fopen("./INPUT/CLOSE/CLOSE_OPENED.vparam", "r+")) == NULL) {
+  if ((*fin = fopen("./INPUT/CLOSE/CLOSE_OPENED.vparam", "r+")) == NULL)
+  {
     printf("can not open data file\n");
     exit(0);
   }
   *fout = fopen("./OUTPUT/CLOSE/CLOSE_OPENED_OUT.vparam", "w+");
 }
 
-void FGetStr(char *str, int size, FILE *file) {
+void FGetStr(char *str, int size, FILE *file)
+{
   int i = 0;
   int j = 0;
   char c, y[99] = {0};
   int x[2];
-  while (c = fgetc(file), j <= 7 && c != EOF && i < size - 1) {
-    if (j == 6 && c == 'S') {
+  while (c = fgetc(file), j <= 7 && c != EOF && i < size - 1)
+  {
+    if (j == 6 && c == 'S')
+    {
       str[i++] = 'A';
       str[i++] = 'u';
       str[i++] = 't';
@@ -104,9 +122,13 @@ void FGetStr(char *str, int size, FILE *file) {
       c = fgetc(file);
       c = fgetc(file);
       c = fgetc(file);
-    } else {
-      if (c == '\n') {
-        if (j == 4) {
+    }
+    else
+    {
+      if (c == '\n')
+      {
+        if (j == 4)
+        {
           str[i++] = '_';
           str[i++] = 'O';
           str[i++] = 'U';
@@ -121,12 +143,14 @@ void FGetStr(char *str, int size, FILE *file) {
   str[i] = c;
   ++i;
   j = 0;
-  while (c = fgetc(file), j <= 4) {
+  while (c = fgetc(file), j <= 4)
+  {
     j++;
     str[i] = c;
     ++i;
   }
-  if (c != '\n') {
+  if (c != '\n')
+  {
     ungetc(c, stdin);
   }
   str[i] = '\0';
