@@ -6,42 +6,32 @@
 #include <iostream>
 
 using namespace std;
-//#define N 280  //!修改用例个数
-//#define M 5  //!修改元素个数
+#define N 168 //!修改用例个数
+#define M 5   //!修改元素个数
 
 int i, j;
 char c[999];
 int x = 0, y = 0;
-int N = 0, M = 0;
 
-extern void FGetStr(char* str, int size, FILE* file);
-extern void input_data(FILE* fin, int (*A)[M + 1]);
-extern void adjust_data(int (*A)[M + 1]);  //!修改判断结果
-extern void output_data(FILE* fout, int (*A)[M + 1]);
-extern void fpath(FILE** fin, FILE** fout);  //!修改文件路径
+extern void FGetStr(char *str, int size, FILE *file);
+extern void input_data(FILE *fin, int (*A)[M + 1]);
+extern void adjust_data(int (*A)[M + 1]); //!修改判断结果
+extern void output_data(FILE *fout, int (*A)[M + 1]);
+extern void fpath(FILE **fin, FILE **fout); //!修改文件路径
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
-  FILE* fin = 0;
-  FILE* fout = 0;
-  FILE** a = 0;
-  FILE** b = 0;
+  int A[N][M + 1] = {0};
+  FILE *fin = 0;
+  FILE *fout = 0;
+  FILE **a = 0;
+  FILE **b = 0;
   a = &fin;
   b = &fout;
-  int N = 0, M = 0;
   //*设置文件路径
   fpath(a, b);
   //*读取数据
   FGetStr(c, 999, fin);
-  // int A[N][M + 1] = {0};
-  // int* const A = (int*)malloc(sizeof(int) b);
-
-  float** tt = new float*[N];
-  for (int i = 0; i < N; ++i)
-  {
-    tt[i] = new float[M];
-  }
-
   input_data(fin, A);
   //*判断输出
   adjust_data(A);
@@ -50,7 +40,7 @@ int main(int argc, char* argv[])
   return 0;
 }
 
-void input_data(FILE* fin, int (*A)[M + 1])
+void input_data(FILE *fin, int (*A)[M + 1])
 {
   for (i = 0; i < N; i++)
   {
@@ -65,26 +55,26 @@ void adjust_data(int (*A)[M + 1])
 {
   for (i = 0; i < N; i++)
   {
-    if (A[i][4] == 21)
-    {
-      A[i][4] = 22;
-    }
+    // if (A[i][4] == 22) {
+    //  A[i][4] = 21;
+    //}
   }
   for (i = 0; i < N; i++)
   {
-    if (A[i][1] == 0 || A[i][1] == 1 || A[i][1] == 7 ||
-        (A[i][1] == 3 && A[i][3] < 5 && A[i][2] == 1))
+    A[i][0] = 1;
+    if (A[i][1] == 0 || A[i][1] == 1 || A[i][1] == 7 || A[i][1] == 2 ||
+        A[i][1] == 4 || (A[i][1] == 3 && A[i][3] < 5 && A[i][2] == 1))
+    {
+      A[i][M] = 0;
+    }
+    else
     {
       A[i][M] = 1;
-    }
-    else if (A[i][0] == 8)
-    {
-      A[i][M] = 8;
     }
   }
 }
 
-void output_data(FILE* fout, int (*A)[M + 1])
+void output_data(FILE *fout, int (*A)[M + 1])
 {
   fprintf(fout, "%s", c);
   //  fprintf(fout, "Values");
@@ -101,19 +91,19 @@ void output_data(FILE* fout, int (*A)[M + 1])
   printf("success!");
 }
 
-void fpath(FILE** fin, FILE** fout)
+void fpath(FILE **fin, FILE **fout)
 {
   // if ((fin = fopen("C:/Users/l/Desktop/1.txt", "r")) == NULL)
   // if((fin=fopen("C:\\Users\\l\\Desktop\\1.txt","r"))==NULL)
-  if ((*fin = fopen("./INPUT/dev.txt", "r+")) == NULL)
+  if ((*fin = fopen("./INPUT/CLOSE/CLOSE_OPENED.vparam", "r+")) == NULL)
   {
     printf("can not open data file\n");
     exit(0);
   }
-  *fout = fopen("./OUTPUT/dev.txt", "w+");
+  *fout = fopen("./OUTPUT/CLOSE/CLOSE_OPENED_OUT.vparam", "w+");
 }
 
-void FGetStr(char* str, int size, FILE* file)
+void FGetStr(char *str, int size, FILE *file)
 {
   int i = 0;
   int j = 0;
@@ -164,12 +154,4 @@ void FGetStr(char* str, int size, FILE* file)
     ungetc(c, stdin);
   }
   str[i] = '\0';
-  while (c = fgetc(file), c != EOF)
-  {
-    if (c == '\n')
-    {
-      N++;
-    }
-  }
-  M = 5;
 }
