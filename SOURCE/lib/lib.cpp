@@ -1,14 +1,17 @@
-#include "lib.h"
+//#include "lib.h"
 #include <cstdio>
+
+#include <cstdlib>
+
 #include <cstring>
+
 #include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
+
 #define __CHAR_BUFFER 1000
 
 int N = 0, M = 0;
 int i = 0, j = 0;
-char c[__CHAR_BUFFER]; //ç€›æ¥ƒï¿½ï¸¾ç´¦ç€›ï¿½
+char c[__CHAR_BUFFER]; //×Ö·û»º´æ
 FILE* fin = 0;
 FILE* fout = 0;
 FILE* fin2 = 0;
@@ -29,7 +32,16 @@ void output_data(FILE* fout, int** tt)
   fclose(fout);
   printf("success!");
 }
-
+// void fpath(FILE** fin, FILE** fout, FILE** fin2)
+// {
+//   if ((*fin = path_in) == NULL)
+//   {
+//     printf("can not open data file\n");
+//     exit(0);
+//   }
+//   *fin2 = path_in;
+//   *fout = path_out;
+// }
 
 int** init_data(int N, int M)
 {
@@ -59,7 +71,7 @@ void init_N(FILE* file)
       N++; /* code */
     }
   }
-  N -= 9; //?ç€¹ç‚ºæª¯ç›å±¾æšŸ
+  N -= 9; //?Êµ¼ÊĞĞÊı
   printf("N = %d\t", N);
   fclose(file);
   // M = 5;

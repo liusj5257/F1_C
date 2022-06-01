@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include "lib.h"
+
 using namespace std;
 char fname[] = __FILE__;
 char PATH_IN[__CHAR_BUFFER] = "../../INPUT/OPEN/";
 char PATH_OUT[__CHAR_BUFFER] = "../../OUTPUT/OPEN/";
-int main(int argc, char *argv[])
+int main(int  /*argc*/, char * /*argv*/[])
 {
   // fpath(a, b, a2);
   path(fname, PATH_IN, PATH_OUT);    //?Â·¾¶
