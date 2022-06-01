@@ -1,5 +1,4 @@
 #include "lib.h"
-#include <stdio.h>
 #include <cstdio>
 #include <cstring>
 #include <iostream>
@@ -9,7 +8,7 @@
 
 int N = 0, M = 0;
 int i = 0, j = 0;
-char c[__CHAR_BUFFER]; //×Ö·û»º´æ
+char c[__CHAR_BUFFER]; //ç€›æ¥ƒï¿½ï¸¾ç´¦ç€›ï¿½
 FILE* fin = 0;
 FILE* fout = 0;
 FILE* fin2 = 0;
@@ -30,16 +29,7 @@ void output_data(FILE* fout, int** tt)
   fclose(fout);
   printf("success!");
 }
-// void fpath(FILE** fin, FILE** fout, FILE** fin2)
-// {
-//   if ((*fin = path_in) == NULL)
-//   {
-//     printf("can not open data file\n");
-//     exit(0);
-//   }
-//   *fin2 = path_in;
-//   *fout = path_out;
-// }
+
 
 int** init_data(int N, int M)
 {
@@ -69,7 +59,7 @@ void init_N(FILE* file)
       N++; /* code */
     }
   }
-  N -= 9; //?Êµ¼ÊĞĞÊı
+  N -= 9; //?ç€¹ç‚ºæª¯ç›å±¾æšŸ
   printf("N = %d\t", N);
   fclose(file);
   // M = 5;
