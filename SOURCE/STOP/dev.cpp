@@ -1,6 +1,5 @@
-#include <stdio.h>
+
 #include "lib.h"
-using namespace std;
 char fname[] = __FILE__;
 char PATH_IN[__CHAR_BUFFER] = "../../INPUT/STOP/";
 char PATH_OUT[__CHAR_BUFFER] = "../../OUTPUT/STOP/";

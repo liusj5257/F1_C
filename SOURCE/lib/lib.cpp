@@ -1,13 +1,4 @@
-//#include "lib.h"
-#include <cstdio>
-
-#include <cstdlib>
-
-#include <cstring>
-
-#include <iostream>
-
-#define __CHAR_BUFFER 1000
+#include "lib.h"
 
 int N = 0, M = 0;
 int i = 0, j = 0;
@@ -15,7 +6,6 @@ char c[__CHAR_BUFFER]; //×Ö·û»º´æ
 FILE* fin = 0;
 FILE* fout = 0;
 FILE* fin2 = 0;
-
 void output_data(FILE* fout, int** tt)
 {
   fprintf(fout, "%s", c);

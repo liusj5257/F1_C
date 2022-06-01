@@ -1,24 +1,22 @@
-#include <stdio.h>
-#include "lib.h"
 
-using namespace std;
+#include "lib.h"
 char fname[] = __FILE__;
 char PATH_IN[__CHAR_BUFFER] = "../../INPUT/OPEN/";
 char PATH_OUT[__CHAR_BUFFER] = "../../OUTPUT/OPEN/";
-int main(int  /*argc*/, char * /*argv*/[])
+int main(int argc, char* argv[])
 {
   // fpath(a, b, a2);
   path(fname, PATH_IN, PATH_OUT);    //?路径
   init_N(fin2);                      //?初始化N
   init_str_M(c, __CHAR_BUFFER, fin); //?读取前置定义以及初始化M
-  int **tt = init_data(N, M + 1);    //*建立数据库
+  int** tt = init_data(N, M + 1);    //*建立数据库
   input_data(fin, tt);               //?读取数据
   adjust_data(tt);                   //?调整数据
   output_data(fout, tt);             //!输出文件
   return 0;
 }
 
-void adjust_data(int **A)
+void adjust_data(int** A)
 {
   for (i = 0; i < N; i++)
   {
