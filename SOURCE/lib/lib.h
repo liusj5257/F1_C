@@ -19,7 +19,7 @@ extern void path(char fname[__CHAR_BUFFER], char path_in[__CHAR_BUFFER],
 
 extern int N, M;
 extern int i, j;
-extern char c[__CHAR_BUFFER]; //闂佽�插�╃粙鎺楁晸閽樺�婃灕闁归�庡厴閺佸倿宕滆�嶉敓钘夊�伴幃妤€鈽夐搹锟界€氾拷
+extern char c[__CHAR_BUFFER]; //�ַ�����
 extern FILE* fin;
 extern FILE* fout;
 extern FILE* fin2;
