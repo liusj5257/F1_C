@@ -1,4 +1,5 @@
 #include "lib.h"
+<<<<<<< HEAD
 #include <stdio.h>
 #include <cstdio>
 #include <cstring>
@@ -13,6 +14,34 @@ char c[__CHAR_BUFFER]; //×Ö·û»º´æ
 FILE* fin = 0;
 FILE* fout = 0;
 FILE* fin2 = 0;
+=======
+
+int N = 0, M = 0;
+int i = 0, j = 0;
+char c[999]; //×Ö·û»º´æ
+
+void adjust_data(int** A)
+{
+  for (i = 0; i < N; i++)
+  {
+    // if (A[i][4] == 22) {
+    //  A[i][4] = 21;
+    //}
+  }
+  for (i = 0; i < N; i++)
+  {
+    if (A[i][1] == 0 || A[i][1] == 1 || A[i][1] == 7 || A[i][1] == 2 ||
+        A[i][1] == 4 || (A[i][1] == 3 && A[i][3] < 5 && A[i][2] == 1))
+    {
+      A[i][M] = 0;
+    }
+    else
+    {
+      A[i][M] = 1;
+    }
+  }
+}
+>>>>>>> 0109d9bf46e7f5bb29110211fd0d2642124a1771
 
 void output_data(FILE* fout, int** tt)
 {
@@ -69,8 +98,13 @@ void init_N(FILE* file)
       N++; /* code */
     }
   }
+<<<<<<< HEAD
   N -= 9; //?Êµ¼ÊÐÐÊý
   printf("N = %d\t", N);
+=======
+  N -= 7;
+  printf("%d\t", N);
+>>>>>>> 0109d9bf46e7f5bb29110211fd0d2642124a1771
   fclose(file);
   // M = 5;
 }
@@ -84,6 +118,10 @@ void init_str_M(char* str, int size, FILE* file)
     if (j == 6 && c == 'I')
     {
       M++;
+<<<<<<< HEAD
+=======
+      printf("%d\t", M);
+>>>>>>> 0109d9bf46e7f5bb29110211fd0d2642124a1771
     }
     if (j == 6 && c == 'S')
     {
@@ -114,7 +152,10 @@ void init_str_M(char* str, int size, FILE* file)
       ++i;
     }
   }
+<<<<<<< HEAD
   printf("M = %d\t", M);
+=======
+>>>>>>> 0109d9bf46e7f5bb29110211fd0d2642124a1771
   str[i] = c;
   ++i;
   j = 0;
@@ -141,6 +182,7 @@ void input_data(FILE* fin, int** tt)
   }
   fclose(fin);
 }
+<<<<<<< HEAD
 
 void path(char fname[__CHAR_BUFFER], char path_in[__CHAR_BUFFER],
           char path_out[__CHAR_BUFFER])
@@ -158,3 +200,5 @@ void path(char fname[__CHAR_BUFFER], char path_in[__CHAR_BUFFER],
   fin2 = fopen(path_in, "r+");
   fout = fopen(path_out, "w+");
 }
+=======
+>>>>>>> 0109d9bf46e7f5bb29110211fd0d2642124a1771
