@@ -6,13 +6,13 @@ char PATH_OUT[__CHAR_BUFFER] = "../../OUTPUT/OPEN/";
 int main(int argc, char* argv[])
 {
   // fpath(a, b, a2);
-  path(fname, PATH_IN, PATH_OUT);    //?鐠猴拷瀵帮拷
-  init_N(fin2);                      //?閸掓繂锟藉瀵睳
-  init_str_M(c, __CHAR_BUFFER, fin); //?鐠囪褰囬崜宥囩枂鐎规矮绠熸禒銉ュ挤閸掓繂锟藉瀵睲
-  int** tt = init_data(N, M + 1);    //*瀵よ櫣鐝涢弫鐗堝祦鎼达拷
-  input_data(fin, tt);               //?鐠囪褰囬弫鐗堝祦
-  adjust_data(tt);                   //?鐠嬪啯鏆ｉ弫鐗堝祦
-  output_data(fout, tt);             //!鏉堟挸鍤弬鍥︽
+  path(fname, PATH_IN, PATH_OUT);    //?路径
+  init_N(fin2);                      //?初始化N
+  init_str_M(c, __CHAR_BUFFER, fin); //?读取前置定义以及初始化M
+  int** tt = init_data(N, M + 1);    //*建立数据库
+  input_data(fin, tt);               //?读取数据
+  adjust_data(tt);                   //?调整数据
+  output_data(fout, tt);             //!输出文件
   return 0;
 }
 
